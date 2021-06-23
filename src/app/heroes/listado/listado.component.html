@@ -1,0 +1,29 @@
+<p>listado de héroes</p>
+
+<div>
+    <!--
+        Cuando una variable tiene como valor '' || false || null || undefined
+        o cualquier otro valor que simbolice que no tiene nada o el valor esté vacío 
+        typescript es suficientemente inteligente como para asumir que la condición
+        no se cumplió
+    <h3 *ngIf="heroeBorrado">Héroe Borrado <small>{{heroeBorrado}}</small></h3>
+    !-->
+    <!--<h3 *ngIf="heroeBorrado !=='' ">Héroe Borrado <small>{{heroeBorrado}}</small></h3>!-->
+    <!--El sigo de adminiración indica negación!-->
+    <!--<h3 *ngIf="!heroeBorrado">No ha borrado nada</h3>!-->
+    <h3 *ngIf="heroeBorrado; else noBorrado">Héroe Borrado <small>{{heroeBorrado}}</small></h3>
+</div>
+
+<ng-template #noBorrado>
+    <h3>No ha borrado nada</h3>
+</ng-template>
+
+<button (click)="borrarHeroe()">
+    Borrar
+</button>
+
+<ul>
+    <li *ngFor="let heroe of heroes; let i=index">
+        {{i+1}} - {{heroe}}
+    </li>
+</ul>
